@@ -8,6 +8,8 @@ public class DatabaseConnector {
 
   private String loginTable = "users";
 
+  private String url = "jdbc:mysql://localhost:3306/";
+
   public DatabaseConnector() {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");  
@@ -16,9 +18,10 @@ public class DatabaseConnector {
     }
   }
 
-  public boolean connectToDB(String url, String username, String password) {
+  public boolean connectToDB(String db, String table, String username, String password) {
+    this.loginTable = table;
     try {
-      this.connection = DriverManager.getConnection(url, username, password);
+      this.connection = DriverManager.getConnection(url + db, username, password);
       return true;
     } catch (SQLException e) {
       System.out.println(e.getMessage());
@@ -93,7 +96,7 @@ public class DatabaseConnector {
   
   public static void main(String[] args) {
     DatabaseConnector connector = new DatabaseConnector();
-    connector.connectToDB("jdbc:mysql://localhost:3306/test","test","12345678");
+    connector.connectToDB("test", "users", "test","12345678");
     connector.createUser("test", "1234");
     System.out.println(connector.verifyPass("test", "1234"));
   }
