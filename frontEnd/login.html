@@ -17,32 +17,71 @@
   </head>
 
   <body>
-    <form id="login" action="#" class="was-validated mx-5">
-      <!-- Username-->
-      <div class="mb-3 mt-3">
-        <label for="uname" class="form-label">Username:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Please fill out this field.</div>
+    <!-- Header-->
+    <div class="row mb-0 ml-1">
+      <div class="page-header bg-dark text-warning mb-0">
+        <div class="container px-0 ml-1">
+          <h1 class="mb-0">Lace Up</h1>
+          <p class="mb-1">Where Ballers Meet</p>
+        </div>
       </div>
+    </div>
 
-      <!-- Password-->
-      <div class="mb-3">
-        <label for="pwd" class="form-label">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Please fill out this field.</div>
-      </div>
+    <!-- Top Nav Bar-->
+    <div class="row">
+      <nav class="collape navbar-collapse navbar-expand-sm bg-secondary mt-0">
+        <div class="container-fluid pl-5">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Link 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Link 3</a>
+            </li>
+            <li class="nav-item ms-auto">
+              <a class="nav-link text-light" href="./login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="container-fluid px-0">
+        <div class="bg-image" style="background-image: url(./img/bball\ court.jpg); height: 80vh; background-position: ;">
+          <form id="login" action="#" class="was-validated mx-5">
+            <!-- Username-->
+            <div class="mb-3 pt-3">
+              <label for="uname" class="form-label">Username:</label>
+              <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
       
-      <!--TODO implement remember me session manager-->
-      <div class="form-check mb-3">
-        <input class="form-check-input" type="checkbox" id="myCheck" name="remember">
-        <label class="form-check-label" for="myCheck">Remember Me</label>
+            <!-- Password-->
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            
+            <!--TODO implement remember me session manager-->
+            <div class="form-check pb-3">
+              <input class="form-check-input" type="checkbox" id="myCheck" name="remember">
+              <label class="form-check-label" for="myCheck">Remember Me</label>
+            </div>
+      
+            <!-- Submit Button-->
+            <input type="submit" id="submitBut" class="btn btn-primary" value="Login">
+          </form>
+        </div>
       </div>
+    </div>
 
-      <!-- Submit Button-->
-      <input type="submit" id="submitBut" class="btn btn-primary" value="Login">
-    </form>
   </body>
 
 </html>

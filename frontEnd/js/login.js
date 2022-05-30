@@ -7,7 +7,7 @@ $(document).ready(function(){
     // var str = "Hello " + uname + " with pword " + pass;
     // alert(str);
 
-    $.post("https://httpbin.org/post  ", {user: uname, pwrd: pass}, 
+    $.post("http://localhost:80/", {user: uname, pwrd: pass}, 
         function(data) {
           alert(data.headers.Host);
         }
