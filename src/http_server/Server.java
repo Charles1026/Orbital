@@ -1,25 +1,19 @@
-//package orbital;
+package orbital.http_server;
 
-import DatabaseConnector;
+import orbital.http_server.database.DatabaseConnector;
+import orbital.http_server.database.user_management.LoginConnector;
+import orbital.http_server.handlers.*;
 
 // import java.io.IOException;
 // import java.io.OutputStream;
-import java.io.*;
 import java.net.InetSocketAddress;
-import java.util.HashMap;
 
-import javax.sql.rowset.CachedRowSet;
-
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 public class Server {
 
     private String url;
-
     private int port;
-
     private DatabaseConnector db;
 
     public Server(String url, int port, DatabaseConnector db) {
@@ -31,7 +25,8 @@ public class Server {
     public boolean startServer() {
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(url, port), 0);
-            server.createContext("/", new BaseHandler()); // Assigns a handler to the base website path
+            server.createContext("/", new HomeHandler()); // Assigns a handler to the base website path
+            server.createContext("/login", new LoginHandler()); // Assigns a handler to the base website path
             server.setExecutor(null); // Uses the default executor for now
             server.start();
 
@@ -45,7 +40,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws Exception {
-        DatabaseConnector db = new DatabaseConnector();
+        DatabaseConnector db = new LoginConnector();
         Server server = new Server("localhost", 80, db);
         System.out.println("Hello");
         server.startServer();
