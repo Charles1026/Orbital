@@ -25,10 +25,13 @@ public class LoginHandler extends Handler {
         String strBody = body2String(httpExchange);
         Map<String, String> httpBody = string2Map(strBody);
 
-        boolean response = login(httpBody.get("uname"), httpBody.get("pword"));
+        boolean validated = verifyLogin(httpBody.get("user"), httpBody.get("pwrd"));
+        int httpCode = validated ? 200 : 401;
+
+        String response = validated ? "12345678" : "Invalid Login Credentials";
 
         try {
-            httpExchange.sendResponseHeaders(200, response.length());
+            httpExchange.sendResponseHeaders(httpCode, response.length());
             OutputStream os = httpExchange.getResponseBody();
             os.write(response.getBytes());
             os.close();
@@ -37,7 +40,7 @@ public class LoginHandler extends Handler {
         }
     }
 
-    private boolean login(String user, String pass) {
+    private boolean verifyLogin(String user, String pass) {
         LoginConnector con = new LoginConnector();
         con.connectToDB("test", "users", "test","12345678");
         return con.verifyPass(user, pass);
