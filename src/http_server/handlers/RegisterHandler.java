@@ -9,10 +9,10 @@ import java.util.Map;
 
 public class RegisterHandler extends Handler {
     @Override
-    public void handle(HttpExchange httpExchange) throws IOException {
+    public void handle(HttpExchange httpExchange) {
         System.out.println("Incoming Request to Register");
         if ("GET".equals(httpExchange.getRequestMethod())) {
-            handleGet(httpExchange, "../../../frontEnd/register.html");
+            handleGet(httpExchange, "frontEnd/register.html");
         } else if ("POST".equals(httpExchange.getRequestMethod())) {
             handlePost(httpExchange);
         }

@@ -8,10 +8,10 @@ import com.sun.net.httpserver.HttpHandler;
 
 public class HomeHandler extends Handler {
     @Override
-    public void handle(HttpExchange httpExchange) throws IOException {
+    public void handle(HttpExchange httpExchange) {
       System.out.println("Incoming Request to Index");
       if ("GET".equals(httpExchange.getRequestMethod())) {
-          handleGet(httpExchange, "../../../frontEnd/index.html");
+          handleGet(httpExchange, "frontEnd/index.html");
       } else if ("POST".equals(httpExchange.getRequestMethod())) {
           handlePost(httpExchange);
       }

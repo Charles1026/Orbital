@@ -11,10 +11,10 @@ import orbital.http_server.database.user_management.LoginConnector;
 
 public class LoginHandler extends Handler {
     @Override
-    public void handle(HttpExchange httpExchange) throws IOException {
+    public void handle(HttpExchange httpExchange) {
       System.out.println("Incoming Request to Login");
       if ("GET".equals(httpExchange.getRequestMethod())) {
-          handleGet(httpExchange, "../../../frontEnd/login.html");
+          handleGet(httpExchange, "frontEnd/login.html");
       } else if ("POST".equals(httpExchange.getRequestMethod())) {
           handlePost(httpExchange);
       }
