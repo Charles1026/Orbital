@@ -11,7 +11,7 @@ public class HomeHandler extends Handler {
     public void handle(HttpExchange httpExchange) throws IOException {
       System.out.println("Incoming Request to Index");
       if ("GET".equals(httpExchange.getRequestMethod())) {
-          handleGet(httpExchange, "../../frontEnd/index.html");
+          handleGet(httpExchange, "../../../frontEnd/index.html");
       } else if ("POST".equals(httpExchange.getRequestMethod())) {
           handlePost(httpExchange);
       }

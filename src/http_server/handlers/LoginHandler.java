@@ -14,7 +14,7 @@ public class LoginHandler extends Handler {
     public void handle(HttpExchange httpExchange) throws IOException {
       System.out.println("Incoming Request to Login");
       if ("GET".equals(httpExchange.getRequestMethod())) {
-          handleGet(httpExchange, "../../frontEnd/login.html");
+          handleGet(httpExchange, "../../../frontEnd/login.html");
       } else if ("POST".equals(httpExchange.getRequestMethod())) {
           handlePost(httpExchange);
       }
