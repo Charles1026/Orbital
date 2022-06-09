@@ -27,7 +27,7 @@ public abstract class Handler implements HttpHandler {
             }
             bufferedReader.close();
 
-            header.add("webpage", "/");
+            header.add("Content-Type", "text/html");
             httpExchange.sendResponseHeaders(200, response.length());
             OutputStream os = httpExchange.getResponseBody();
             os.write(response.toString().getBytes());
