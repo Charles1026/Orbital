@@ -1,5 +1,7 @@
 package orbital.http_server.handlers;
 
+import com.sun.net.httpserver.HttpExchange;
+
 public class ParticularsHandler extends Handler {
 
     @Override
@@ -12,9 +14,7 @@ public class ParticularsHandler extends Handler {
         }
     }
 
-    // Does nothing. Can be changed in the future if you want to add in an edit function on this handler
+    // Does nothing.
     @Override
-    protected void handlePost(httpExchange) {
-        return;
-    }
+    protected void handlePost(HttpExchange httpExchange) {}
 }
