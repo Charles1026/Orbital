@@ -12,43 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Local Script-->
+    <script src="../js/profile.js"></script>
   </head>
 
   <body>
-    <!-- Header-->
-    <!-- <div class="row mb-0">
-      <div class="page-header bg-dark  ml-1 mb-0">
-        <div class="container ml-1 px-0 text-decoration-none">
-          <a href="/" class="text-decoration-none text-warning">
-            <h1 class="mb-0">Lace Up</h1>
-            <p class="mb-1">Where Ballers Meet</p>
-          </a>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Top Nav Bar-->
-    <!-- <div class="row">
-      <nav class="navbar-collapse navbar-expand-sm bg-light mt-0">
-        <div class="container-fluid pl-5">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link 3</a>
-            </li>
-            <li class="nav-item ms-auto">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div> -->
-
     <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="padding-left: 100px;">
       <a class="navbar-brand text-warning pl-5" href="/"> 
         <img src="../img/favicon_io/android-chrome-192x192.png" style="height: 3vh;">
@@ -68,13 +37,30 @@
     </nav>
 
     <div class="container-fluid" style="background: url(./img/basketball\ court.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh; display: flex; align-items: center;">
-      <div class="pl-5 text-black">
-        <h1>Where Ballers Meet</h1>
-      </div>
+      <table class="table mx-5">
+        <thead>
+          <tr>
+            <th scope="col">Welcome</th>
+            <th scope="col" id="uname"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Email</th>
+            <td id="email"></td>
+          </tr>
+          <tr>
+            <th scope="row">Position</th>
+            <td id="pos"></td>
+          </tr>
+          <tr>
+            <th scope="row">Experience</th>
+            <td id="exp"></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </body>
 
-
 </html>
-

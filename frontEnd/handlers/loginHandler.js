@@ -3,15 +3,15 @@ const session = require('../session')
 
 const loginHandler = (req, res) => {
   console.log("Incoming Login Post Request");
-  if (req.cookies) {
-    const sessionToken = req.cookies[session.sessionName];
-    if (sessionToken && session.validateSession(sessionToken)) {
-      console.log("Login Success");
-      res.cookie(session.sessionName, sessionToken);
-      res.redirect('/');
-      return;
+    if (req.cookies) {
+      const sessionToken = req.cookies[session.sessionName];
+      if (sessionToken && session.validateSession(sessionToken)) {
+        console.log("Login Success");
+        res.cookie(session.sessionName, sessionToken);
+        res.redirect('/');
+        return;
+      }
     }
-  }
   
   const { uname, pswd } = req.body;
   console.log(req.body);
@@ -26,13 +26,16 @@ const loginHandler = (req, res) => {
         //query will return an array as username is unique and thus, we can use results[0] to access the only row given back from mySQL
         if (results.length == 1) { //Array has the only row needed
           console.log("Username Exists");
-          console.log(results);
           accountPassword = results[0][database.userPWord];
 
           if (pswd == accountPassword) {
               console.log("Login Successsful");
-              const sessionToken = session.createSession(uname, 10 * 60 * 1000);
+              const sessionToken = session.createSession(results[0], 10 * 60 * 1000);
               res.cookie(session.sessionName, sessionToken);
+              res.cookie("uname", results[0][database.userUName]);
+              res.cookie("email", results[0][database.userEmail]);
+              res.cookie("pos", results[0][database.userPos]);
+              res.cookie("exp", results[0][database.userExp]);
               res.redirect('/');
               return;
           }

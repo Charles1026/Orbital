@@ -38,7 +38,7 @@
 
     <div class="container-fluid px-0">
       <div class="bg-image" style="background: url(./img/bball\ court.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
-        <form id="login" action="/login" method="POST" class="was-validated mx-5">
+        <form id="login" action="/register" method="POST" class="was-validated mx-5">
           <!-- Username-->
           <div class="mb-3 pt-3">
             <label for="uname" class="form-label">Username:</label>
@@ -51,6 +51,41 @@
           <div class="mb-3">
             <label for="pwd" class="form-label">Password:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+            <div class="valid-feedback"></div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+
+          <!-- Email-->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
+            <div class="valid-feedback"></div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+
+          <!-- Position-->
+          <div class="mb-3">
+            <label for="pos" class="form-label">Position:</label>
+            <select class="form-select" aria-label="Default select example" name="pos" required>
+              <option selected value="" disabled>Select Position</option>
+              <option value="1">Guard</option>
+              <option value="2">Forward</option>
+              <option value="3">Center</option>
+            </select>
+            <div class="valid-feedback"></div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+
+          <!-- Experience-->
+          <div class="mb-3">
+            <label for="exp" class="form-label">Experience:</label>
+            <select class="form-select" aria-label="Default select example" name="exp" required>
+              <option selected value="" disabled>Select Experience</option>
+              <option value="1" >New</option>
+              <option value="2">Recreational</option>
+              <option value="3">Competitive</option>
+              <option value="4">Professional</option>
+            </select>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">Please fill out this field.</div>
           </div>
