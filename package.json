@@ -1,0 +1,33 @@
+{
+  "name": "orbital",
+  "version": "1.0.0",
+  "description": "by Ryan and Zhehao",
+  "main": "frontEnd/server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charles1026/Orbital.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charles1026/Orbital/issues"
+  },
+  "homepage": "https://github.com/Charles1026/Orbital#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.18",
+    "uuid": "^8.3.2"
+  }
+}

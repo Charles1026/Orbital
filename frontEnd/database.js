@@ -2,9 +2,9 @@ const mysql = require('mysql2');
 
 const connection = mysql.createPool({
   host: 'localhost',
-  user: 'test', //change this to your mySQL username 
-  password: '12345678', //change this to your mySQL password
-  database: 'test', //change this to your mySQL database
+  user: 'root', //change this to your mySQL username 
+  password: 'nY=P3<.8=n$a*#Y', //change this to your mySQL password
+  database: 'orbitalusers', //change this to your mySQL database
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 5
@@ -13,7 +13,7 @@ const connection = mysql.createPool({
 module.exports.connection = connection;
 
 module.exports.userTable = "users"; // Table for Users
-module.exports.userUName = "uname"; // Table for Users
-module.exports.userPWord = "pword"; // Table for Users
+module.exports.userUName = "username"; // Column for Username
+module.exports.userPWord = "password"; // Column for Password
 module.exports.courtTable = "courts"
 // module.exports.
