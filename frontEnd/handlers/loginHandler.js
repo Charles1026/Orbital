@@ -16,7 +16,7 @@ const loginHandler = (req, res) => {
   const { uname, pswd } = req.body;
   console.log(req.body);
   database.connection.query(
-    `SELECT * FROM ${database.userTable} WHERE uname = '${uname}'`, 
+    `SELECT * FROM ${database.userTable} WHERE ${database.userUname} = '${uname}'`, 
     (err, results, fields) => {
         if (err) {
           console.log("Login Unsuccessful:" + err.stack);
