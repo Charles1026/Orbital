@@ -13,8 +13,8 @@ const connection = mysql.createPool({
 module.exports.connection = connection;
 
 module.exports.userTable = "users"; // Table for Users
-module.exports.userUName = "username"; // Table for Users
-module.exports.userPWord = "password"; // Table for Users
+module.exports.userUName = "uname"; // Table for Users
+module.exports.userPWord = "pword"; // Table for Users
 module.exports.userEmail = "email"; // Table for Users
 module.exports.userPos = "pos"; // Table for Users
 module.exports.userExp = "exp"; // Table for Users

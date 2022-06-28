@@ -4,18 +4,18 @@ const database = require('./database');
 
 class Session {
   constructor(username, email, pos, exp, duration) {
-      this.username = username;
-      this.email = email;
-      this.pos = pos;
-      this.exp = exp;
-      this.duration = duration;
-      const now = new Date();
-      this.expiresAt = new Date(now + duration);
+    this.username = username;
+    this.email = email;
+    this.pos = pos;
+    this.exp = exp;
+    this.duration = duration;
+    const now = new Date();
+    this.expiresAt = new Date(now + duration);
   }
 
   // we'll use this method later to determine if the session has expired
   isExpired() {
-      return this.expiresAt > (new Date());
+    return this.expiresAt > (new Date());
   }
 
   refreshTime() {

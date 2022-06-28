@@ -9,7 +9,7 @@ const htmlPath = "/html/";
 module.exports.htmlPath = htmlPath;
 
 app.listen(3000, () => {
-    console.log("Application started and Listening on port 3000");
+  console.log("Application started and Listening on port 3000");
 });
 
 // serve your css as static
@@ -22,48 +22,32 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //Main page
 app.get("/", (req, res) => {
-    console.log("Incoming Request to Index");
-    res.sendFile(__dirname + htmlPath + "index.html");
+  console.log("Incoming Request to Index");
+  res.sendFile(__dirname + htmlPath + "index.html");
 });
 
 //Login page
 app.get("/login", (req, res) => {
-    console.log("Incoming Request to Login");
+  console.log("Incoming Request to Login");
 
-    if (req.cookies) {
-        const sessionToken = req.cookies[session.sessionName];
-        if (sessionToken && session.validateSession(sessionToken)) {
-          console.log("Alr In Session, No Login");
-          res.cookie(session.sessionName, sessionToken);
-          res.redirect('/');
-          return;
-        }
+  if (req.cookies) {
+    const sessionToken = req.cookies[session.sessionName];
+    if (sessionToken && session.validateSession(sessionToken)) {
+      console.log("Alr In Session, No Login");
+      res.cookie(session.sessionName, sessionToken);
+      res.redirect('/');
+      return;
     }
+  }
 
-    res.sendFile(__dirname + htmlPath + "login.html");
+  res.sendFile(__dirname + htmlPath + "login.html");
 });
 
 const loginHandler = require("./handlers/loginHandler")
 app.post("/login", loginHandler);
 
-//Profile Page
-app.get("/profile", (req, res) => {
-    console.log("Incoming Request to Profile");
+const profileRouter = require("./routes/profile.js");
+const registerRouter = require("./routes/register.js");
 
-    console.log("Incoming Profile Get Request");
-    if (!req.cookies) {
-        res.redirect('/login');
-    }
-    const sessionToken = req.cookies[session.sessionName];
-    if(!sessionToken || !session.validateSession(sessionToken)) {
-        res.redirect('/login');
-    }
-
-    res.sendFile(__dirname + htmlPath + "profile.html");
-});
-
-const userRouter = require("./routes/users");
-const registerRouter = require("./routes/register");
-
-app.use("/users", userRouter);
+app.use("/profile", profileRouter);
 app.use("/register", registerRouter);
