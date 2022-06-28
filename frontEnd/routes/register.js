@@ -1,22 +1,46 @@
 const express = require("express");
-const router = express.Router();
-const dbConnection = require("../database");
 const bodyParser = require('body-parser');
+const path = require('path');
+const dbConnection = require("../database");
+const server = require("../server")
+const session = require('../session')
+const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false }) //depends on what type of POST we are using
 
 //Accessing the registration page
 router.get("/", (req, res) => {
     console.log("Incoming Request to Register");
-    res.sendFile(path.join(__dirname, "../frontEnd", "register.html")); //TODO: register.html does not exist yet
+
+    if (req.cookies) {
+        const sessionToken = req.cookies[session.sessionName];
+        if (sessionToken && session.validateSession(sessionToken)) {
+          console.log("Alr In Session, No Registration");
+          res.cookie(session.sessionName, sessionToken);
+          res.redirect('/');
+          return;
+        }
+    }
+
+    res.sendFile(path.join(__dirname, "../", server.htmlPath, "register.html"));
 });
 
 //Creating an account 
 router.post("/", urlencodedParser, (req, res) => { //might have to change the parser depending on the type of POST
     console.log("Incoming Registration");
-    const { username, password } = req.body;
+    if (req.cookies) {
+        const sessionToken = req.cookies[session.sessionName];
+        if (sessionToken && session.validateSession(sessionToken)) {
+          console.log("Alr In Session, No Registration");
+          res.cookie(session.sessionName, sessionToken);
+          res.redirect('/');
+          return;
+        }
+    }
+
+    const {uname, pswd, email, pos, exp} = req.body;
 
     dbConnection.connection.query(
-        `INSERT INTO ${dbConnection.userTable} VALUES(DEFAULT,'${username}', '${password}')`, 
+        `INSERT INTO ${dbConnection.userTable} VALUES(NULL,'${uname}', '${pswd}', '${email}', '${pos}', '${exp}')`, 
         (err, results, fields) => {
             if (err) {
                 console.log("Account Creation Unsuccessful");
@@ -29,7 +53,7 @@ router.post("/", urlencodedParser, (req, res) => { //might have to change the pa
             }
             
             console.log("Account Created");
-            res.status(201).send("Account successfully created");
+            res.redirect('/login');
         })
 });
 

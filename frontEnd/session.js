@@ -1,9 +1,13 @@
 const cookie = require('cookie-session');
 const uuid = require('uuid')
+const database = require('./database');
 
 class Session {
-  constructor(username, duration) {
+  constructor(username, email, pos, exp, duration) {
       this.username = username;
+      this.email = email;
+      this.pos = pos;
+      this.exp = exp;
       this.duration = duration;
       const now = new Date();
       this.expiresAt = new Date(now + duration);
@@ -19,11 +23,11 @@ class Session {
   }
 }
 
-const createSession = (uname, duration) => {
+const createSession = (sqlResult, duration) => {
   // Create UID
   const sessionToken = uuid.v4();
   // Create New Session
-  const session = new Session(uname, duration);
+  const session = new Session(sqlResult[database.userUName], sqlResult[database.userEmail], sqlResult[database.userPos], sqlResult[database.userExp], duration);
   // Add session to sessions
   sessions[sessionToken] = session;
   return sessionToken;
