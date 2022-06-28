@@ -14,8 +14,6 @@ router.get("/", (req, res) => {
 router.post("/", urlencodedParser, (req, res) => { //might have to change the parser depending on the type of POST
     console.log("Incoming Registration");
     const { username, password } = req.body;
-  
-    dbConnection.connect();
 
     dbConnection.query(
         `INSERT INTO users VALUES(DEFAULT,'${username}', '${password}')`, 
@@ -33,8 +31,6 @@ router.post("/", urlencodedParser, (req, res) => { //might have to change the pa
             console.log("Account Created");
             res.status(201).send("Account successfully created");
         })
-    
-    //So apparently calling dbConnection.end() closes the connection for good and future posts will not open the connection again so
 });
 
 module.exports = router;
