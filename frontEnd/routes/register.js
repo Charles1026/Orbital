@@ -15,8 +15,8 @@ router.post("/", urlencodedParser, (req, res) => { //might have to change the pa
     console.log("Incoming Registration");
     const { username, password } = req.body;
 
-    dbConnection.query(
-        `INSERT INTO users VALUES(DEFAULT,'${username}', '${password}')`, 
+    dbConnection.connection.query(
+        `INSERT INTO ${dbConnection.userTable} VALUES(DEFAULT,'${username}', '${password}')`, 
         (err, results, fields) => {
             if (err) {
                 console.log("Account Creation Unsuccessful");

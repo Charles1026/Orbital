@@ -1,9 +1,0 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-../frontEnd/node_modules/
-../frontEnd/package.json
-../frontEnd/package-lock.json
-../node_modules
-../package.json
-../package-lock.json

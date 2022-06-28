@@ -1,4 +1,4 @@
-const connection = require('../database')
+const database = require('../database')
 const session = require('../session')
 
 const loginHandler = (req, res) => {
@@ -15,24 +15,35 @@ const loginHandler = (req, res) => {
   
   const { uname, pswd } = req.body;
   console.log(req.body);
-  connection.query(
-    `SELECT * FROM users WHERE uname = '${uname}'`, 
+  database.connection.query(
+    `SELECT * FROM ${database.userTable} WHERE uname = '${uname}'`, 
     (err, results, fields) => {
         if (err) {
           console.log("Login Unsuccessful:" + err.stack);
           return;
         }
-        
-        if (results.length == 1 && results[0].pword == pswd) {
-          console.log("Login Success");
-          const sessionToken = session.createSession(uname, 10 * 60 * 1000);
-          res.cookie(session.sessionName, sessionToken);
-          res.redirect('/');
-        } else {
-          console.log("Invalid Credentials");
-          res.status(401).send("Invalid Credentials");
+
+        //query will return an array as username is unique and thus, we can use results[0] to access the only row given back from mySQL
+        if (results.length == 1) { //Array has the only row needed
+          console.log("Username Exists");
+          console.log(results);
+          accountPassword = results[0][database.userPWord];
+
+          if (pswd == accountPassword) {
+              console.log("Login Successsful");
+              const sessionToken = session.createSession(uname, 10 * 60 * 1000);
+              res.cookie(session.sessionName, sessionToken);
+              res.redirect('/');
+              return;
+          }
+            console.log("Invalid Password");
+            res.status(401).send("Invalid Password");
+            return;
         }
-    })
+        console.log("Username Does Not Exist");
+        res.status(401).send("User Not Found");
+
+  })
 }
 
 module.exports = loginHandler

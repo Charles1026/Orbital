@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be664ace-a0e5-4790-a75f-c09efecbdd51" name="Changes" comment="Fixed path for webpages">
+      <change beforePath="$PROJECT_DIR$/build/orbital/DatabaseConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/orbital/Server$BaseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/orbital/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http_server/handlers/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/http_server/handlers/Handler.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AEcsQO4YCwWRYLfaf9SOuTa7PO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zhehao/IdeaProjects/Orbital/lib/mysql-connector.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="orbital.http_server.Server" />
+      <module name="Orbital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="orbital.http_server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be664ace-a0e5-4790-a75f-c09efecbdd51" name="Changes" comment="" />
+      <created>1654578395057</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654578395057</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Created Framework for HTTP Server">
+      <created>1654616111141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654616111141</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created Framework for HTTP Server and added README">
+      <created>1654656548400</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654656548400</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created Framework for HTTP Server and added README">
+      <created>1654656986962</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654656986962</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed path for webpages">
+      <created>1654657136452</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654657136452</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed path for webpages">
+      <created>1654657645487</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654657645487</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created Framework for HTTP Server" />
+    <MESSAGE value="Created Framework for HTTP Server and added README" />
+    <MESSAGE value="Fixed path for webpages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed path for webpages" />
+  </component>
+</project>
