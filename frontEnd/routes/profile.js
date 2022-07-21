@@ -48,8 +48,8 @@ router
               return console.log(err); 
           }
           
-          console.log("Account Updated"); // Currently updates fine but has an error saying "can't set headers after they are sent"
-          res.redirect('/profile');
+          console.log("Account Updated"); 
+          res.status(204).send('Successfully Updated');
           // Also need to work on updating the cookie session to reflect the changes in the database (currently only updates cookies on login)
       })
   })
