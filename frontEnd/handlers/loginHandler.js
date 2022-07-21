@@ -23,8 +23,8 @@ const loginHandler = (req, res) => {
           return;
         }
 
-        //query will return an array as username is unique and thus, we can use results[0] to access the only row given back from mySQL
-        if (results.length == 1) { //Array has the only row needed
+        // query will return an array as username is unique and thus, we can use results[0] to access the only row given back from mySQL
+        if (results.length == 1) { // Array has the only row needed
           console.log("Username Exists");
           accountPassword = results[0][database.userPWord];
 
