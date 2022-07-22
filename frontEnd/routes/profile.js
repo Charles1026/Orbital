@@ -62,6 +62,33 @@ router
 router.get('/:UName', (req, res) => {
   const { UName } = req.params;
 
-  dbConnection.connection.query
+  dbConnection.connection.query(
+    `SELECT ${dbConnection.userUName}, ${dbConnection.userPos}, ${dbConnection.userExp} 
+      FROM ${dbConnection.userTable} 
+      WHERE ${dbConnection.userUName} = '${UName}'`,
+    (err, results, fields) => {
+      if (err) {
+        console.log("Account Retrieval Unsuccessful:" + err.stack);
+        return;
+      }
+
+      // query will return an array as username is unique and thus, we can use results[0] to access the only row given back from mySQL
+      if (results.length == 1) { // Array has the only row needed
+        console.log("Account Exists");
+        account = results[0];
+        
+        console.log(account);
+        
+        res.send('Test susccessful');
+        // res.sendFile(path.join(__dirname, "../html/", "profile.html")); probably need to change the path to a different html
+        return;
+      }
+
+      console.log("Invalid Username");
+      res.status(401).send("Invalid Username");
+      return;
+    }
+  )
 })
+
 module.exports = router;
