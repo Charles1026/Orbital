@@ -54,3 +54,4 @@ const sessions = {}
 module.exports.createSession = createSession;
 module.exports.validateSession = validateSession;
 module.exports.sessionName = "session_token";
+module.exports.deleteSession = deleteSession;

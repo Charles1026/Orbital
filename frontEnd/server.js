@@ -26,28 +26,12 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + htmlPath + "index.html");
 });
 
-//Login page
-app.get("/login", (req, res) => {
-  console.log("Incoming Request to Login");
-
-  if (req.cookies) {
-    const sessionToken = req.cookies[session.sessionName];
-    if (sessionToken && session.validateSession(sessionToken)) {
-      console.log("Alr In Session, No Login");
-      res.cookie(session.sessionName, sessionToken);
-      res.redirect('/');
-      return;
-    }
-  }
-
-  res.sendFile(__dirname + htmlPath + "login.html");
-});
-
-const loginHandler = require("./handlers/loginHandler")
-app.post("/login", loginHandler);
-
+const loginRouter = require("./routes/login.js");
 const profileRouter = require("./routes/profile.js");
 const registerRouter = require("./routes/register.js");
+const logoutRouter = require("./routes/logout.js");
 
+app.use("/login", loginRouter);
 app.use("/profile", profileRouter);
 app.use("/register", registerRouter);
+app.use("/logout", logoutRouter);
