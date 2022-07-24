@@ -1,0 +1,51 @@
+extends template.pug
+
+block content
+  .container-fluid.px-0
+    .bg-image(style='background: url(./img/bball_court.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;')
+      form#login.was-validated.mx-5(action='/register' method='POST')
+        // Username
+        .mb-3.pt-3
+          label.form-label(for='uname') Username:
+          input#uname.form-control(type='text' placeholder='Enter username' name='uname' required='')
+          .valid-feedback
+          .invalid-feedback Please fill out this field.
+        // Password
+        .mb-3
+          label.form-label(for='pwd') Password:
+          input#pwd.form-control(type='password' placeholder='Enter password' name='pswd' required='')
+          .valid-feedback
+          .invalid-feedback Please fill out this field.
+        // Email
+        .mb-3
+          label.form-label(for='email') Email:
+          input#email.form-control(type='text' placeholder='Enter email' name='email' required='')
+          .valid-feedback
+          .invalid-feedback Please fill out this field.
+        // Position
+        .mb-3
+          label.form-label(for='pos') Position:
+          select.form-select(aria-label='Default select example' name='pos' required='')
+            option(selected='' value='' disabled='') Select Position
+            option(value='1') Guard
+            option(value='2') Forward
+            option(value='3') Center
+          .valid-feedback
+          .invalid-feedback Please fill out this field.
+        // Experience
+        .mb-3
+          label.form-label(for='exp') Experience:
+          select.form-select(aria-label='Default select example' name='exp' required='')
+            option(selected='' value='' disabled='') Select Experience
+            option(value='1') New
+            option(value='2') Recreational
+            option(value='3') Competitive
+            option(value='4') Professional
+          .valid-feedback
+          .invalid-feedback Please fill out this field.
+        // TODO implement remember me session manager
+        .form-check.pb-3
+          input#myCheck.form-check-input(type='checkbox' name='remember')
+          label.form-check-label(for='myCheck') Remember Me
+        // Submit Button
+        input#submitBut.btn.btn-primary(type='submit' value='Login')

@@ -22,7 +22,7 @@ router.route("/")
       }
     }
   
-    res.sendFile(path.join(__dirname, "../html/", "login.html"));
+    res.render("login");
   })
   .post((req, res) => {
     console.log("Incoming Login Post Request");
@@ -56,10 +56,6 @@ router.route("/")
                 console.log("Login Successsful");
                 const sessionToken = session.createSession(results[0], 10 * 60 * 1000);
                 res.cookie(session.sessionName, sessionToken);
-                res.cookie("uname", results[0][dbConnection.userUName]);
-                res.cookie("email", results[0][dbConnection.userEmail]);
-                res.cookie("pos", results[0][dbConnection.userPos]);
-                res.cookie("exp", results[0][dbConnection.userExp]);
                 res.redirect('/');
                 return;
             }

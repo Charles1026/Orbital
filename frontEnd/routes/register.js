@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
         }
     }
 
-    res.sendFile(path.join(__dirname, "../", server.htmlPath, "register.html"));
+    res.render("register");
 });
 
 //Creating an account 

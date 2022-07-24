@@ -4,6 +4,7 @@ const session = require('../session');
 const path = require("path");
 const dbConnection = require("../database");
 const bodyParser = require('body-parser');
+const { userInfo } = require("os");
 
 router.use(bodyParser.urlencoded({ extended: true }))
 
@@ -22,7 +23,8 @@ router
       return;
     }
 
-    res.sendFile(path.join(__dirname, "../html/", "profile.html"));
+    let userInfo = session.getInfo(sessionToken);
+    res.render("profile", {uname: userInfo[0], email: userInfo[1], pos: userInfo[2], exp: userInfo[3]});
   })
   //Updating personal particulars
   .put((req, res) => {

@@ -13,17 +13,20 @@ app.listen(3000, () => {
 });
 
 // serve your css as static
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "/public/")));
 
 app.use(cookieParser());
 
 // get our app to use body parser 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.set('views', './pug')
+app.set('view engine', 'pug')
+
 //Main page
 app.get("/", (req, res) => {
   console.log("Incoming Request to Index");
-  res.sendFile(__dirname + htmlPath + "index.html");
+  res.render("index")
 });
 
 const loginRouter = require("./routes/login.js");

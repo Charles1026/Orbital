@@ -21,6 +21,8 @@ class Session {
   refreshTime() {
     this.expiresAt = new Date(this.expiresAt + this.duration);
   }
+
+  getInfo() {return [this.username, this.email, this.pos, this.exp];}
 }
 
 const createSession = (sqlResult, duration) => {
@@ -48,6 +50,12 @@ const validateSession = (sessionToken) => {
 
 const deleteSession = (sessionToken) => delete sessions[sessionToken];
 
+
+const getInfo = (sessionToken) => {
+  userSession = sessions[sessionToken];
+  return userSession.getInfo();
+}
+
 // this object stores the users sessions. For larger scale applications, you can use a database or cache for this purpose
 const sessions = {}
 
@@ -55,3 +63,4 @@ module.exports.createSession = createSession;
 module.exports.validateSession = validateSession;
 module.exports.sessionName = "session_token";
 module.exports.deleteSession = deleteSession;
+module.exports.getInfo = getInfo;
