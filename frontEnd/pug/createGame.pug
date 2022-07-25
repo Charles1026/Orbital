@@ -1,15 +1,15 @@
-extends template.pug
+extends template.pug 
 
 block content
   .container-fluid.px-0
-    .bg-image(style='background: url(./img/basketball_court.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;')
+    .bg-image(style='background: url(./img/bball_court.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;')
       .container-fluid.mx-5.py-1
         .h3 Create a Game
       form#login.was-validated.mx-5(action='/register' method='POST')
         // Username
         .mb-3.pt-1
-          label.form-label(for='uname') Username:
-          input#uname.form-control(type='text' placeholder='Enter username' name='uname' required='')
+          label.form-label(for='uname') Name:
+          input#uname.form-control(type='text' placeholder='Enter Game Name' name='uname' required='')
           .valid-feedback
           .invalid-feedback Please fill out this field.
         // Password

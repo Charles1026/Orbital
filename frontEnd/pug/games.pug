@@ -1,0 +1,15 @@
+extends template.pug 
+
+block content
+  .container-fluid(style='background: url(./img/basketball_court.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh; display: flex; align-items: center;')
+    table.table.mx-5
+      thead
+        tr
+          th(scope='col') Name
+          th(scope='col') Court
+          th(scope='col') Date and Time
+          th(scope='col') Experience Level
+          th(scope='col') Players
+          th(scope='col') Creator
+      each game in games
+        tbody

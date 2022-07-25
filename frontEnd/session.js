@@ -3,7 +3,8 @@ const uuid = require('uuid')
 const database = require('./database');
 
 class Session {
-  constructor(username, email, pos, exp, duration) {
+  constructor(id, username, email, pos, exp, duration) {
+    this.id = id
     this.username = username;
     this.email = email;
     this.pos = pos;
@@ -23,13 +24,15 @@ class Session {
   }
 
   getInfo() {return [this.username, this.email, this.pos, this.exp];}
+
+  getID() {return this.id}
 }
 
 const createSession = (sqlResult, duration) => {
   // Create UID
   const sessionToken = uuid.v4();
   // Create New Session
-  const session = new Session(sqlResult[database.userUName], sqlResult[database.userEmail], sqlResult[database.userPos], sqlResult[database.userExp], duration);
+  const session = new Session(sqlResult[database.userID], sqlResult[database.userUName], sqlResult[database.userEmail], sqlResult[database.userPos], sqlResult[database.userExp], duration);
   // Add session to sessions
   sessions[sessionToken] = session;
   return sessionToken;

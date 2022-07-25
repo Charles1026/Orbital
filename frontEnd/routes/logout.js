@@ -13,6 +13,7 @@ router.route("/")
       const sessionToken = req.cookies[session.sessionName];
       if(sessionToken && session.validateSession(sessionToken)) {
         session.deleteSession(sessionToken);
+        res.clearCookie(session.sessionName)
         console.log("Logged Out Successfully");
       } else {
         console.log("Not Logged In, No Need For Logout");

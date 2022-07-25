@@ -12,21 +12,41 @@ html(lang='en')
     // JQuery
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')
   body
-    // Navigation Block
-    block navigation
-      nav.navbar.navbar-expand-lg.navbar-light.bg-dark(style='padding-left: 100px;')
+    nav.navbar.navbar-expand-lg.navbar-light.bg-dark
+      .container-fluid
         a.navbar-brand.text-warning.pl-5(href='/')
-          img(src='../img/favicon_io/android-chrome-192x192.png' style='height: 3vh;')
-          |         Lace Up
-        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
+          img(src='./img/favicon_io/android-chrome-192x192.png' style='height: 3vh;')
+          |           Lace Up
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
           span.navbar-toggler-icon
-        #navbarNavAltMarkup.collapse.navbar-collapse
-          .navbar-nav
-            a.nav-item.nav-link.text-warning(href='/') Home
-            a.nav-item.nav-link.text-warning(href='/profile') Profile
-            a.nav-item.nav-link.text-warning(href='/login') Login
-            a.nav-item.nav-link.text-warning(href='/register') Register
-            a.nav-item.nav-link.text-warning(href='/logout') Logout
+        #navbarSupportedContent.collapse.navbar-collapse
+          .btn-group.navbar-btn
+            button.btn.btn-warning(type='button')
+              a.nav-link.text-dark(href='/profile') Profile
+            button.btn.btn-warning.dropdown-toggle.dropdown-toggle-split(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+              span.visually-hidden Toggle Dropdown
+            ul.dropdown-menu.dropdown-menu-dark(aria-labelledby='navbarDropdown')
+              a.dropdown-item.text-warning(href='/login') Login
+              a.dropdown-item.text-warning(href='/register') Register
+              li
+                hr.dropdown-divider
+              a.dropdown-item.text-warning(href='/logout') Logout
+          .btn-group.navbar-btn
+            button.btn.btn-warning(type='button')
+              a.nav-link.text-dark(href='/games') Find a Game
+            button.btn.btn-warning.dropdown-toggle.dropdown-toggle-split(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+              span.visually-hidden Toggle Dropdown
+            ul.dropdown-menu.dropdown-menu-dark(aria-labelledby='navbarDropdown')
+              a.dropdown-item.text-warning(href='/games/create') Create Game
+              a.dropdown-item.text-warning(href='/games/history') Game History
+          .btn-group.navbar-btn
+            button.btn.btn-warning(type='button')
+              a.nav-link.text-dark(href='/courts') Courts
+            button.btn.btn-warning.dropdown-toggle.dropdown-toggle-split(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+              span.visually-hidden Toggle Dropdown
+            ul.dropdown-menu.dropdown-menu-dark(aria-labelledby='navbarDropdown')
+              a.dropdown-item.text-warning(href='/courts/register') Register A Court
+
     
     // Content Block
     block content

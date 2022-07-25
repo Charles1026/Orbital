@@ -34,7 +34,11 @@ const profileRouter = require("./routes/profile.js");
 const registerRouter = require("./routes/register.js");
 const logoutRouter = require("./routes/logout.js");
 
+const gamesRouter = require("./routes/games.js");
+
 app.use("/login", loginRouter);
 app.use("/profile", profileRouter);
 app.use("/register", registerRouter);
 app.use("/logout", logoutRouter);
+
+app.use("/games", gamesRouter);
