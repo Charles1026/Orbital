@@ -28,14 +28,17 @@ router
   })
   //Updating personal particulars
   .put((req, res) => {
-    // console.log("Incoming Request to Update Profile");
-    // if (!req.cookies) {
-    //   res.redirect('/login');
-    // }
-    // const sessionToken = req.cookies[session.sessionName];
-    // if(!sessionToken || !session.validateSession(sessionToken)) {
-    //   res.redirect('/login');
-    // }
+    // Not sure if this is needed since they technically can't update their accouont without having a cookie?
+    console.log("Incoming Request to Update Profile");
+    if (!req.cookies) {
+      res.redirect('/login');
+      return;
+    }
+    const sessionToken = req.cookies[session.sessionName];
+    if(!sessionToken || !session.validateSession(sessionToken)) {
+      res.redirect('/login');
+      return;
+    }
 
     const {uname, email, pos, exp} = req.body;
 

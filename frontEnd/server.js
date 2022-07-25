@@ -20,7 +20,7 @@ app.use(cookieParser());
 // get our app to use body parser 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.set('views', './pug')
+app.set('views', path.join(__dirname, "pug"))
 app.set('view engine', 'pug')
 
 //Main page
